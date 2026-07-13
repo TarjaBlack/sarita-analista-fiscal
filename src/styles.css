@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Scrollbar for modern look (opcional, do nosso código) */
+/* Custom Scrollbar for modern look */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: #0f172a; }
 ::-webkit-scrollbar-thumb { background: #10b981; border-radius: 4px; }

@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { App } from './app.component';
+import { AppComponent } from './app.component';
 
-describe('App', () => {
+describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [App],
+      imports: [AppComponent],
     }).compileComponents();
   });
 
   it('should create the app with default signal state', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
 
     expect(component).toBeTruthy();
@@ -21,7 +21,7 @@ describe('App', () => {
   });
 
   it('should render the hero title and contact buttons', async () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     await fixture.whenStable();
 
@@ -33,7 +33,7 @@ describe('App', () => {
   });
 
   it('should toggle and close the mobile menu', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -49,7 +49,7 @@ describe('App', () => {
   });
 
   it('should update the menu icon when the menu toggles', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -64,7 +64,7 @@ describe('App', () => {
   });
 
   it('should set document scroll behavior to smooth on init', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -73,7 +73,7 @@ describe('App', () => {
   });
 
   it('should set scrolled true when window is scrolled', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -89,7 +89,7 @@ describe('App', () => {
   });
 
   it('should exercise mobile menu click listeners and close links', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 
@@ -112,7 +112,7 @@ describe('App', () => {
   });
 
   it('should render all dynamic list items in the template', async () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
     await fixture.whenStable();
@@ -128,7 +128,7 @@ describe('App', () => {
   });
 
   it('should toggle menu class state when opening and closing mobile menu', () => {
-    const fixture = TestBed.createComponent(App);
+    const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     fixture.detectChanges();
 

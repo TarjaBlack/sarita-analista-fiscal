@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
+    <!-- Header / Navbar -->
     <nav [class]="'fixed w-full z-50 transition-all duration-300 ' + (scrolled() ? 'bg-slate-900/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5')">
       <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#home" class="text-2xl font-bold text-white tracking-tighter flex items-center gap-2">
@@ -13,6 +14,7 @@ import { CommonModule } from '@angular/common';
           Sarita Macedo
         </a>
 
+        <!-- Desktop Menu -->
         <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-200">
           <a href="#sobre" class="hover:text-emerald-400 transition-colors">Sobre mim</a>
           <a href="#servicos" class="hover:text-emerald-400 transition-colors">Serviços</a>
@@ -20,6 +22,7 @@ import { CommonModule } from '@angular/common';
           <a href="#contato" class="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-full transition-colors shadow-lg shadow-emerald-500/30">Fale Comigo</a>
         </div>
 
+        <!-- Mobile Menu Toggle -->
         <button (click)="toggleMenu()" class="md:hidden text-white focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path *ngIf="!isMenuOpen()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -28,6 +31,7 @@ import { CommonModule } from '@angular/common';
         </button>
       </div>
 
+      <!-- Mobile Menu Dropdown -->
       <div [class]="'md:hidden absolute w-full bg-slate-800 transition-all duration-300 overflow-hidden shadow-xl ' + (isMenuOpen() ? 'max-h-64 border-b border-slate-700' : 'max-h-0')">
         <div class="flex flex-col px-6 py-4 space-y-4 text-center">
           <a href="#sobre" (click)="closeMenu()" class="text-slate-200 hover:text-emerald-400">Sobre mim</a>
@@ -38,7 +42,9 @@ import { CommonModule } from '@angular/common';
       </div>
     </nav>
 
+    <!-- Hero Section -->
     <header id="home" class="relative bg-slate-900 min-h-screen flex items-center overflow-hidden pt-20">
+      <!-- Decorative Background Elements -->
       <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         <div class="absolute -top-[20%] -right-[10%] w-[70%] h-[70%] rounded-full bg-indigo-600/20 blur-[120px]"></div>
         <div class="absolute bottom-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-emerald-600/20 blur-[120px]"></div>
@@ -68,9 +74,7 @@ import { CommonModule } from '@angular/common';
         
         <div class="flex-1 flex justify-center md:justify-end">
           <div class="relative w-64 h-64 md:w-96 md:h-96 rounded-full border-4 border-slate-800 p-2 shadow-2xl">
-            <img src="src/assets/images/sarita-macedo.jpg" alt="Sarita Macedo" class="w-full h-full object-cover rounded-full shadow-inner" />
-            
-            <div class="absolute -bottom-4 -right-4 bg-slate-800 border border-slate-700 px-6 py-4 rounded-2xl shadow-xl">
+              <img src="sarita-capa.png" alt="Sarita Macedo" class="w-full h-full object-cover rounded-full shadow-inner bg-slate-800" />            <div class="absolute -bottom-4 -right-4 bg-slate-800 border border-slate-700 px-6 py-4 rounded-2xl shadow-xl">
               <p class="text-emerald-400 font-bold text-xl">+10</p>
               <p class="text-slate-300 text-xs uppercase tracking-wider">Anos de Experiência</p>
             </div>
@@ -79,6 +83,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </header>
 
+    <!-- Sobre Section -->
     <section id="sobre" class="py-24 bg-white">
       <div class="container mx-auto px-6 md:px-12">
         <div class="flex flex-col md:flex-row gap-16 items-center">
@@ -102,10 +107,11 @@ import { CommonModule } from '@angular/common';
                 Competências Técnicas
               </h3>
               <div class="flex flex-wrap gap-3">
-                  <span *ngFor="let skill of skills()" class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm hover:border-emerald-300 hover:text-emerald-600 transition-colors cursor-default">
-                    {{ skill }}
-                  </span>
-                </div>
+                <span *ngFor="let skill of skills()" class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-700 shadow-sm hover:border-emerald-300 hover:text-emerald-600 transition-colors cursor-default">
+                  {{ skill }}
+                </span>
+              </div>
+              
               <h3 class="text-xl font-bold text-slate-800 mt-8 mb-4 flex items-center gap-2">
                 <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                 Sistemas e Ferramentas
@@ -121,6 +127,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
+    <!-- Serviços Section -->
     <section id="servicos" class="py-24 bg-slate-50">
       <div class="container mx-auto px-6 md:px-12">
         <div class="text-center max-w-3xl mx-auto mb-16">
@@ -139,6 +146,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
+    <!-- Experiência Timeline -->
     <section id="experiencia" class="py-24 bg-white">
       <div class="container mx-auto px-6 md:px-12">
         <h2 class="text-3xl font-bold text-slate-900 mb-2 text-center">Trajetória Profissional</h2>
@@ -146,24 +154,26 @@ import { CommonModule } from '@angular/common';
 
         <div class="max-w-4xl mx-auto">
           <div class="relative border-l-2 border-emerald-100 ml-3 md:ml-0">
-          <div *ngFor="let job of experiences()" class="mb-12 relative pl-8 md:pl-12 group">
-            <div class="absolute w-6 h-6 bg-emerald-500 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm group-hover:scale-125 transition-transform"></div>
-            
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-emerald-200 transition-colors shadow-sm">
-              <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                <h3 class="text-xl font-bold text-slate-800">{{ job.role }}</h3>
-                <span class="text-sm font-semibold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full mt-2 md:mt-0 inline-block w-max">{{ job.period }}</span>
+            <div *ngFor="let job of experiences()" class="mb-12 relative pl-8 md:pl-12 group">
+              <!-- Dot -->
+              <div class="absolute w-6 h-6 bg-emerald-500 rounded-full -left-[13px] top-1 border-4 border-white shadow-sm group-hover:scale-125 transition-transform"></div>
+              
+              <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-emerald-200 transition-colors shadow-sm">
+                <div class="mb-2">
+                  <h3 class="text-xl font-bold text-slate-800">{{ job.role }}</h3>
+                </div>
+                <h4 class="text-md font-medium text-slate-500 mb-4">{{ job.company }}</h4>
+                <p class="text-slate-600">{{ job.desc }}</p>
               </div>
-              <h4 class="text-md font-medium text-slate-500 mb-4">{{ job.company }}</h4>
-              <p class="text-slate-600">{{ job.desc }}</p>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
 
+    <!-- Call to Action / Contato -->
     <section id="contato" class="py-24 bg-slate-900 relative overflow-hidden">
+      <!-- Background pattern -->
       <div class="absolute inset-0 opacity-10">
         <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -182,12 +192,14 @@ import { CommonModule } from '@angular/common';
         </p>
 
         <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+          <!-- WhatsApp Button -->
           <a href="https://wa.me/5548988038545?text=Olá%20Sarita,%20vi%20seu%20site%20e%20gostaria%20de%20conversar%20sobre%20serviços%20fiscais." target="_blank" 
              class="flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-[#25D366]/30 w-full md:w-auto justify-center">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             (48) 98803-8545
           </a>
           
+          <!-- Email Button -->
           <a href="mailto:saritamacedo1988@gmail.com" 
              class="flex items-center gap-3 bg-transparent border-2 border-slate-600 hover:border-slate-400 text-white font-bold py-4 px-8 rounded-full transition-all w-full md:w-auto justify-center">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -197,6 +209,7 @@ import { CommonModule } from '@angular/common';
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-slate-950 pt-12 pb-6 border-t border-slate-800">
       <div class="container mx-auto px-6 md:px-12 text-center">
         <h3 class="text-xl font-bold text-white tracking-tighter mb-4">Sarita Macedo de Oliveira</h3>
@@ -207,6 +220,7 @@ import { CommonModule } from '@angular/common';
             &copy; 2026 Sarita Macedo. Todos os direitos reservados.
           </p>
           
+          <!-- Developer Credits -->
           <div class="bg-slate-900 border border-slate-800 px-4 py-3 rounded-lg text-left inline-block">
             <p class="text-slate-500 text-xs uppercase tracking-wider mb-1 font-semibold">Criação & Desenvolvimento Web</p>
             <div class="flex items-center gap-4 text-sm text-slate-400">
@@ -220,11 +234,13 @@ import { CommonModule } from '@angular/common';
     </footer>
   `,
   styles: [`
+    /* Smooth scrolling enabled globally */
     :host {
       display: block;
       scroll-behavior: smooth;
     }
     
+    /* Custom Scrollbar for modern look */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -240,7 +256,7 @@ import { CommonModule } from '@angular/common';
     }
   `]
 })
-export class App implements OnInit {
+export class AppComponent implements OnInit {
   isMenuOpen = signal(false);
   scrolled = signal(false);
 
@@ -305,6 +321,7 @@ export class App implements OnInit {
   ]);
 
   ngOnInit() {
+    // Add smooth scrolling to entire html element on init
     document.documentElement.style.scrollBehavior = 'smooth';
   }
 
